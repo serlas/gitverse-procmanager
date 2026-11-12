@@ -1,0 +1,7 @@
+[Unit]
+Description=Test Service
+After=network.target
+
+[Service]
+ExecStart=/bin/sleep 60
+HealthURL=http://localhost:80  # Mock

@@ -1,0 +1,19 @@
+[Unit]
+Description=Process Manager Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /path/to/GitVerse_Task_3/procmanager.py --repo /var/lib/procmanager --action start --unit test.service
+Restart=always
+RestartSec=5
+User=root
+Group=root
+WorkingDirectory=/path/to/GitVerse_Task_3
+StandardOutput=journal
+StandardError=journal
+KillMode=process
+ExecReload=/bin/kill -HUP $MAINPID  # Hot reload
+
+[Install]
+WantedBy=multi-user.target
